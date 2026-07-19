@@ -96,8 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3287948611943350881}
   - component: {fileID: 7780879296386692368}
-  - component: {fileID: 2653544477481530019}
-  - component: {fileID: -5187087655495723414}
+  - component: {fileID: 6772253249397826831}
+  - component: {fileID: 7817372616738364407}
   m_Layer: 0
   m_Name: PT_Menhir_Rock_02
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2804321427668277467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.15}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,7 +150,25 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2656451562331225545}
   m_Enabled: 1
---- !u!136 &2653544477481530019
+--- !u!114 &6772253249397826831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804321427668277467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a33a128aff36e4e92b39d06cf0782c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: fe53cdfc10f8f1043ac07ca60603ec3e, type: 2}
+  amountPerCollect: 1
+  usesRemaining: 1
+  promptText: Press E to interact
+  animationTrigger: PickFromGround
+  destroyWhenEmpty: 1
+--- !u!136 &7817372616738364407
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,28 +187,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
+  m_Radius: 0.54
+  m_Height: 3.45
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5187087655495723414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2804321427668277467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0a33a128aff36e4e92b39d06cf0782c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceName: Crystal
-  amountPerCollect: 1
-  usesRemaining: 1
-  promptText: Press E to interact
-  animationTrigger: PickFromGround
-  destroyWhenEmpty: 1
+  m_Center: {x: -0.14, y: 1.14, z: 0.12}
 --- !u!1 &6892846152554402458
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +288,6 @@ GameObject:
   - component: {fileID: 5831670394684494036}
   - component: {fileID: 7004474624027861508}
   - component: {fileID: 8975058473414284020}
-  - component: {fileID: 6711863550603516222}
   m_Layer: 0
   m_Name: PT_Menhir_Rock_02_LOD0
   m_TagString: Untagged
@@ -305,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 8391035051546296263}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.05, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -364,26 +363,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6711863550603516222
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8391035051546296263}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: -0.16178173, y: 1.2, z: 0.13}
