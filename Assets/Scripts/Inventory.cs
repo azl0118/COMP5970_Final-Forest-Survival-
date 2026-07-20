@@ -61,6 +61,55 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public bool HasItem(ItemData item, int amount)
+    {
+        int total = 0;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && slots[i].item == item)
+            {
+                total += slots[i].amount;
+            }
+        }
+
+        return total >= amount;
+    }
+
+    public bool RemoveItem(ItemData item, int amount)
+    {
+        if (!HasItem(item, amount))
+            return false;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+                continue;
+
+            if (slots[i].item != item)
+                continue;
+
+            if (slots[i].amount > amount)
+            {
+                slots[i].amount -= amount;
+                UpdateUI();
+                return true;
+            }
+
+            amount -= slots[i].amount;
+            slots[i] = null;
+
+            if (amount <= 0)
+            {
+                UpdateUI();
+                return true;
+            }
+        }
+
+        UpdateUI();
+        return true;
+    }
+
     private void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++) 

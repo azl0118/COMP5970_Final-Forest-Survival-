@@ -7,11 +7,13 @@ public class ResourceCounter : MonoBehaviour
     public TextMeshProUGUI appleText;
     public TextMeshProUGUI oreText;
     public TextMeshProUGUI crystalText;
+    public TextMeshProUGUI swordText;
 
 
     private int apples;
     private int ores;
     private int crystals;
+    private int sword;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +28,7 @@ public class ResourceCounter : MonoBehaviour
         appleText.text = "Apples: " + apples;
         oreText.text = "Ores: " + ores;
         crystalText.text = "Crystals: " + crystals;
+        swordText.text = "Sword: " + sword;
     }
 
     public void AddResource(string resourceName, int amount)
@@ -43,6 +46,10 @@ public class ResourceCounter : MonoBehaviour
             crystals += amount;
         }
 
+        else if (resourceName == "Sword")
+        {
+            sword += amount;
+        }
         UpdateUI();
     }
 
