@@ -2971,7 +2971,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9ec9cb830a13a3f48a7558707136b80c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a241a465a9489a84c990eba643eb2f05, type: 2}
+      objectReference: {fileID: 2100000, guid: 753f25b7523300544856bbfa92ebf586, type: 2}
     - target: {fileID: 919132149155446097, guid: 9ec9cb830a13a3f48a7558707136b80c, type: 3}
       propertyPath: m_Name
       value: tool-axe
