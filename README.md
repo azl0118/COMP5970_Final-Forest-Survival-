@@ -103,6 +103,7 @@ The objective UI displays:
 | Move | W, A, S, D |
 | Look Around | Mouse |
 | Jump | Space |
+| Run | Shift |
 | Interact | E |
 | Equip Axe | 1 |
 | Equip Sword | 2 |
