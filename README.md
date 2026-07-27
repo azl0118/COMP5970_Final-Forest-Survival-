@@ -177,5 +177,6 @@ After winning or losing, the player can press **R** to restart the game.
 **Adam Lee**  
 Auburn University  
 Computer Science, '27
+
 Dr. Abhishek Jariwala is also given credit for COMP5970, Game Development, Summer 2026 modules 0-10.
 
