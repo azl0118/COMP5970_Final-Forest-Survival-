@@ -4,6 +4,22 @@
 
 **Forest Survival** is a 3D survival and exploration game developed in Unity. The player explores a forest, gathers resources, crafts a sword, manages health, avoids hazards, and defeats a dangerous bear to complete the game. This is a Final Project for COMP5970, Game Development, Dr. Abhishek Jariwala, Auburn University.
 
+## ScreenShots
+<img width="993" height="558" alt="image" src="https://github.com/user-attachments/assets/f6a876b1-3fbf-41b7-ad82-60869cfba2c9" />
+<img width="991" height="549" alt="image" src="https://github.com/user-attachments/assets/4647adac-d349-4424-9d71-3de7450061f1" />
+<img width="977" height="557" alt="image" src="https://github.com/user-attachments/assets/f61f8a7a-db78-491c-8c9d-19e13daa49db" />
+<img width="976" height="558" alt="image" src="https://github.com/user-attachments/assets/9082f6aa-01ef-41eb-8c10-553ee3b11ef2" />
+<img width="983" height="546" alt="image" src="https://github.com/user-attachments/assets/6fbac30a-df1c-4e55-a0a4-a3e93fd62d5e" />
+<img width="972" height="552" alt="image" src="https://github.com/user-attachments/assets/d28cd4a1-1af0-4c6d-b402-2566372e2cdb" />
+<img width="977" height="553" alt="image" src="https://github.com/user-attachments/assets/e44056ba-235c-4ea1-96fb-29bd4e678e76" />
+<img width="977" height="551" alt="image" src="https://github.com/user-attachments/assets/8cbd71d1-7c2e-42bc-b825-8bf5cab9e65f" />
+
+
+
+
+
+
+
 ## Gameplay Objective
 
 The player must:
