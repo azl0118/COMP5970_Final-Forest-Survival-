@@ -13,6 +13,8 @@ public class PlayerInteraction : MonoBehaviour
     private InteractableResource currentResource;
     private Animator animator;
     private bool isInteracting;
+    private CraftingTable currentCraftingTable;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,58 +36,73 @@ public class PlayerInteraction : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange);
 
-        InteractableResource closestResource = null;
+        currentResource = null;
+        currentCraftingTable = null;
+
         float closestDistance = Mathf.Infinity;
 
         foreach (Collider hit in hits)
         {
+            float distance = Vector3.Distance(transform.position, hit.transform.position);
+
             InteractableResource resource = hit.GetComponentInParent<InteractableResource>();
-            if (resource == null)
+
+            if (resource != null && distance < closestDistance)
             {
+                closestDistance = distance;
+                currentResource = resource;
+                currentCraftingTable = null;
                 continue;
             }
 
-            float distance = Vector3.Distance(transform.position, resource.transform.position);
+            CraftingTable table = hit.GetComponentInParent<CraftingTable>();
 
-            if (distance < closestDistance)
+            if (table != null && distance < closestDistance)
             {
                 closestDistance = distance;
-                closestResource = resource;
+                currentCraftingTable = table;
+                currentResource = null;
             }
         }
 
-        currentResource = closestResource;
-
         if (promptText == null)
-        {
             return;
-        }
-        if (currentResource != null && !isInteracting)
-        {
-            promptText.text = "Press E to interact";
-            promptText.gameObject.SetActive(true);
-        }
-        else
 
+        if (!isInteracting)
         {
-            promptText.gameObject.SetActive(false);
-
+            if (currentResource != null)
+            {
+                promptText.text = currentResource.promptText;
+                promptText.gameObject.SetActive(true);
+            }
+            else if (currentCraftingTable != null)
+            {
+                promptText.text = currentCraftingTable.promptText;
+                promptText.gameObject.SetActive(true);
+            }
+            else
+            {
+                promptText.gameObject.SetActive(false);
+            }
         }
     }
 
     public void OnInteract(InputValue value)
     {
         if (!value.isPressed)
-        {
             return;
-        }
 
-        if (currentResource == null || isInteracting)
-        {
+        if (isInteracting)
             return;
-        }
 
-        StartCoroutine(InteractRoutine());
+        if (currentResource != null)
+        {
+            StartCoroutine(InteractRoutine());
+        }
+        else if (currentCraftingTable != null)
+        {
+            currentCraftingTable.Interact(inventory);
+        }
     }
 
     private IEnumerator InteractRoutine()

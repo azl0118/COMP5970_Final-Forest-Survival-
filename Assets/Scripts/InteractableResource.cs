@@ -11,7 +11,6 @@ public class InteractableResource : MonoBehaviour
 
     public bool destroyWhenEmpty = true;
 
-
     public void Interact(Inventory inventory)
     {
         if (usesRemaining <= 0)
@@ -19,18 +18,16 @@ public class InteractableResource : MonoBehaviour
             return;
         }
 
-        if (item != null && inventory != null ) 
+        if (item != null && inventory != null)
         {
             inventory.AddItem(item, amountPerCollect);
         }
 
         usesRemaining--;
 
-        if (usesRemaining <= 0 && destroyWhenEmpty) 
+        if (usesRemaining <= 0 && destroyWhenEmpty)
         {
             gameObject.SetActive(false);
         }
     }
-
-
 }

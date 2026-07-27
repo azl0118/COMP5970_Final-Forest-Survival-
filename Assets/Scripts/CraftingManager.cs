@@ -2,35 +2,50 @@ using UnityEngine;
 
 public class CraftingManager : MonoBehaviour
 {
-    public Inventory inventory;
+    public static CraftingManager Instance;
+    public ObjectiveUI objectiveUI;
 
-    [Header("Recipe")]
-    public ItemData wood;
-    public ItemData ore;
-    public ItemData sword;
+    public ItemData woodItem;
+    public ItemData oreItem;
+    public ItemData crystalItem;
+    public ItemData swordItem;
 
-    public int woodRequired = 3;
-    public int oreRequired = 2;
-
-    public void CraftSword()
+    private void Awake()
     {
-        if (!inventory.HasItem(wood, woodRequired))
+        Instance = this;
+    }
+
+    public void CraftSword(Inventory inventory)
+    {
+        if (!inventory.HasItem(woodItem, 5))
         {
-            Debug.Log("Not enough wood.");
+            Debug.Log("Need 5 Wood.");
             return;
         }
 
-        if (!inventory.HasItem(ore, oreRequired))
+        if (!inventory.HasItem(oreItem, 3))
         {
-            Debug.Log("Not enough stone.");
+            Debug.Log("Need 3 Ore.");
             return;
         }
 
-        inventory.RemoveItem(wood, woodRequired);
-        inventory.RemoveItem(ore, oreRequired);
+        if (!inventory.HasItem(crystalItem, 2))
+        {
+            Debug.Log("Need 2 Crystals.");
+            return;
+        }
 
-        inventory.AddItem(sword, 1);
+        inventory.RemoveItem(woodItem, 5);
+        inventory.RemoveItem(oreItem, 3);
+        inventory.RemoveItem(crystalItem, 2);
 
-        Debug.Log("Sword crafted!");
+        inventory.AddItem(swordItem, 1);
+
+        if (objectiveUI != null)
+        {
+            objectiveUI.SetSwordCrafted();
+        }
+
+        Debug.Log("Sword Crafted!");
     }
 }

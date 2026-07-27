@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1988025617893250342}
   - component: {fileID: 6759055787200995927}
-  - component: {fileID: 1689445842061070941}
-  - component: {fileID: 7758223260864145729}
+  - component: {fileID: -2997253869752485835}
+  - component: {fileID: -873107813731198481}
   m_Layer: 0
   m_Name: PT_Fruit_Tree_01_dead
   m_TagString: Untagged
@@ -64,7 +64,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4772830539911952586}
   m_Enabled: 1
---- !u!136 &1689445842061070941
+--- !u!136 &-2997253869752485835
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,11 +83,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.54
-  m_Height: 5.27
+  m_Radius: 0.32
+  m_Height: 7.14
   m_Direction: 1
-  m_Center: {x: 0, y: 1.92, z: 0}
---- !u!114 &7758223260864145729
+  m_Center: {x: -0.08, y: 2.79, z: 0}
+--- !u!114 &-873107813731198481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 123e056b68cdc5641aa00acdbee944db, type: 2}
-  amountPerCollect: 1
-  usesRemaining: 3
+  amountPerCollect: 2
+  usesRemaining: 1
   promptText: Press E to interact
   animationTrigger: ChopWood
   destroyWhenEmpty: 1

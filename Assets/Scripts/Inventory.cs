@@ -5,12 +5,26 @@ public class Inventory : MonoBehaviour
     public InventorySlotUI[] slotUIs;
     public InventorySlotData[] slots;
 
+    [Header("Starting Item")]
+    public ItemData AxeItem;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         slots = new InventorySlotData[slotUIs.Length];
-        UpdateUI();
+    }
 
+    void Start()
+    {
+        if (AxeItem != null)
+        {
+            AddItem(AxeItem, 1);
+        }
+
+        else
+        {
+            UpdateUI();
+        }
     }
 
     public void AddItem(ItemData item, int amount)
@@ -59,6 +73,31 @@ public class Inventory : MonoBehaviour
 
         UpdateUI();
 
+    }
+
+    public int GetItemAmount(ItemData item)
+    {
+        if (slots == null || item == null)
+        {
+            return 0;
+        }
+
+        int totalAmount = 0;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                continue;
+            }
+
+            if (slots[i].item == item)
+            {
+                totalAmount += slots[i].amount;
+            }
+        }
+
+        return totalAmount;
     }
 
     public bool HasItem(ItemData item, int amount)

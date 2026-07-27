@@ -19,6 +19,10 @@ public class BearAI : MonoBehaviour
     public int damage = 20;
     public float attackCooldown = 1.5f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip attackSound;
+
     private NavMeshAgent agent;
     private Animator animator;
 
@@ -45,10 +49,24 @@ public class BearAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
 
-        // Get player health component
         if (player != null)
         {
-            playerHealth = player.GetComponent<PlayerHealth>();
+            playerHealth = player.GetComponentInParent<PlayerHealth>();
+
+            if (playerHealth == null)
+            {
+                playerHealth = player.GetComponentInChildren<PlayerHealth>();
+            }
+        }
+
+        if (playerHealth == null)
+        {
+            Debug.LogError("BearAI could not find PlayerHealth.");
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
         }
 
         agent.speed = moveSpeed;
@@ -56,7 +74,6 @@ public class BearAI : MonoBehaviour
         SetIdle();
         ChoosePatrolPoint();
     }
-
 
     void Update()
     {
@@ -208,17 +225,23 @@ public class BearAI : MonoBehaviour
     {
         attacking = true;
 
-        nextAttackTime =
-            Time.time + attackCooldown;
-
+        nextAttackTime = Time.time + attackCooldown;
 
         animator.SetBool("Walk Forward", false);
         animator.SetBool("Combat Idle", false);
-
         animator.SetBool("Attack3", true);
+
+        if (audioSource != null && attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
+
+        // Damage about halfway through the attack animation
+        Invoke(nameof(DealDamage), 0.5f);
+
+        // Reset after the animation finishes
+        Invoke(nameof(AttackFinished), 1.2f);
     }
-
-
 
     //ANIMATION EVENT
     public void DealDamage()
@@ -226,31 +249,20 @@ public class BearAI : MonoBehaviour
         if (playerHealth == null)
             return;
 
-
-        float distance = Vector3.Distance(
-            transform.position,
-            player.position
-        );
-
+        float distance = Vector3.Distance(transform.position, player.position);
 
         if (distance <= attackRange + 0.5f)
         {
             playerHealth.TakeDamage(damage);
-
             Debug.Log("Bear attacked player!");
         }
     }
 
-
-
-    // END OF ATTACK
     public void AttackFinished()
     {
         animator.SetBool("Attack3", false);
-
         attacking = false;
     }
-
 
     // Stops Attacking
     void StopAttack()

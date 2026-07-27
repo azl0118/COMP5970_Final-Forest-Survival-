@@ -15,3 +15,6 @@ MonoBehaviour:
   itemName: Sword
   icon: {fileID: 21300000, guid: 1cad6d96977eaf640af0085bc8232d0e, type: 3}
   maxStackSize: 1
+  type: 1
+  damage: 30
+  attackRange: 2.5
