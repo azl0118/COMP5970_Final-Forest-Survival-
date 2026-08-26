@@ -4,7 +4,7 @@
 
 **Forest Survival** is a 3D survival and exploration game developed in Unity. The player explores a forest, gathers resources, crafts a sword, manages health, avoids hazards, and defeats a dangerous bear to complete the game. This is a Final Project for COMP5970, Game Development, Dr. Abhishek Jariwala, Auburn University.
 
-## ScreenShots
+## Screenshots
 <img width="993" height="558" alt="image" src="https://github.com/user-attachments/assets/f6a876b1-3fbf-41b7-ad82-60869cfba2c9" />
 <img width="991" height="549" alt="image" src="https://github.com/user-attachments/assets/4647adac-d349-4424-9d71-3de7450061f1" />
 <img width="977" height="557" alt="image" src="https://github.com/user-attachments/assets/f61f8a7a-db78-491c-8c9d-19e13daa49db" />
